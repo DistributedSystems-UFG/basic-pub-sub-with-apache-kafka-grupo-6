@@ -19,6 +19,7 @@ producer = KafkaProducer(bootstrap_servers=[BROKER_ADDR + ':' + BROKER_PORT])
 
 #Loop pra ficar criando novos topicos
 while (True):
-    topic = print('Enter a new topic')
+    topic = input('Enter a new topic')
     #Nova thread e criada para enviar cada topico
     thread = Thread(target=send_topic, args=(topic, producer))
+    thread.start()
